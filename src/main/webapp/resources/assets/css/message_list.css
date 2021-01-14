@@ -1,0 +1,35 @@
+.alt{
+	width: 260px;
+}
+
+.alt2{
+	width: 1200px;
+}
+
+div#bottom {
+	margin-left: 400px
+}
+
+ul#paging {
+	list-style: none;
+	float: left;
+	padding: 6px;
+}
+
+@media screen and (max-width: 720px) {
+  	div#bottom {
+    	margin-left: 0px;
+  	}
+}
+
+@media screen and (max-width: 1200px) {
+  	.alt2 {
+    	width: 70%
+  	}
+}
+
+@media screen and (max-width: 1600px) {
+  	.alt2 {
+    	width: 100%
+  	}
+}

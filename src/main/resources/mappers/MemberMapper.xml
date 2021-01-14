@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.comstudy21.myapp.MemberMapper">
+	<select id="getMemberLoginChk" resultType="MemberVO">
+	<![CDATA[
+		select * from member where
+		id = #{id} and password = #{password}
+	]]>
+	</select>
+	
+	<select id="getMember" resultType="MemberVO">
+	<![CDATA[
+		select * from member where
+		id = #{id}
+	]]>
+	</select>
+	
+	<select id="getMemberId" resultType="MemberVO">
+	<![CDATA[
+		select * from member 
+		where ${col1} = #{value1}  
+		  and ${col2} = #{value2} 
+	]]>
+	</select>
+	
+	<select id="getMemberPw" resultType="MemberVO">
+	<![CDATA[
+		select * from member
+		 where id = #{id}
+		  and phoneStart = #{phoneStart} 
+		  and phoneCenter = #{phoneCenter}
+		  and phoneEnd = #{phoneEnd}
+		  and rownum = 1
+	]]>
+	</select>
+	
+	<select id="getMemberIdDupCheck" resultType= "MemberVO">
+	<![CDATA[
+		select * from member
+		 where id = #{id}
+	]]>
+	</select>
+	
+	<select id="getMemberList" resultType="MemberVO">
+	<![CDATA[
+		select id from member
+	]]>
+	</select>
+
+	<insert id="insertMember">
+	<![CDATA[
+			insert into member
+			(            
+			 id		       
+			,name         
+			,password     
+			,nickname     
+			,emailId      
+			,emaildomain 
+			,phonestart   
+			,phonecenter  
+			,phoneend        
+			)
+			values
+			(
+			 #{id}
+			,#{name}
+			,#{password}
+			,#{nickname}
+			,#{emailId}
+			,#{emailDomain}
+			,#{phoneStart} 
+			,#{phoneCenter} 
+			,#{phoneEnd} 
+			)              
+		]]>
+	</insert>
+
+	<update id="updateMember">
+	<![CDATA[
+		UPDATE member
+		SET NAME=#{name}
+          , NICKNAME=#{nickname}
+          , BIRTHDAY=#{birthday}
+          , WEBSITE = #{website}
+          , INTRODUCE = #{introduce}
+          , EMAILID = #{emailId}
+          , EMAILDOMAIN = #{emailDomain}
+          , PHONESTART = #{phoneStart}
+          , PHONECENTER = #{phoneCenter}
+          , PHONEEND = #{phoneEnd}
+          , SEX = #{sex}
+          , ENABLEYN = #{enableYn}
+          , PHOTOPATH = #{photoPath}
+		WHERE ID=#{id}
+	]]>
+	</update>
+	
+	<update id="updateMemberPwd">
+	<![CDATA[
+		UPDATE member
+		SET PASSWORD=#{password}
+		WHERE ID=#{id}
+	]]>
+	</update>
+	
+	<update id="updateMemberPhotoPath">
+	<![CDATA[
+		UPDATE member
+		SET photoPath=#{photoPath}
+		WHERE ID=#{id}
+	]]>
+	</update>
+	
+	<delete id="deleteMember">
+	<![CDATA[
+		DELETE FROM MEMBER WHERE ID=#{id}
+	]]>
+	</delete>
+</mapper>

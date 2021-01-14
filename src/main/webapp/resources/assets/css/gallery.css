@@ -1,0 +1,46 @@
+div.gallerymain {
+	padding: auto;
+	margin: auto;
+}
+
+div.sliderBox {
+	border: 1px solid black;
+	width: 840px;
+	height: 500px;
+	position: relative;
+	overflow: hidden;
+}
+
+div.sliderBox ul {
+	border: 0px solid green;
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	position: absolute;
+	width: 3360px;
+}
+
+div.sliderBox li {
+	border: 1px solid black;
+	box-sizing: border-box;
+	width: 840px;
+	height: 500px;
+	float: left;
+}
+
+div.lblGroup label {
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	border: 1px solid gray;
+	border-radius: 5px;
+}
+
+div.lblGroup {
+	position: absolute;
+	width: 840px;
+	text-align: center;
+	top: 15px;
+	left: 15px;
+}

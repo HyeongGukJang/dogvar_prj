@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.comstudy21.myapp.MessageMapper">
+    
+    <!-- 상세보기 -->
+	<select id="recv_getMessage" resultType="MessageVO">
+	<![CDATA[
+		select * from recv_note where
+		seq = #{seq}
+	]]>
+	</select>
+
+	<select id="send_getMessage" resultType="MessageVO">
+	<![CDATA[
+		select * from send_note where
+		seq = #{seq}
+	]]>
+	</select>
+
+	  <!-- 쪽지함 -->
+	<select id="recv_getMessageList" resultType="MessageVO">
+	<![CDATA[
+		 select * from(
+			select rownum num, recv_note.* 
+			from (select * from recv_note order by seq desc) recv_note
+			)
+			where num between #{rowStart} and #{rowEnd}	and recv_id = #{recv_id}
+		]]>
+	</select>
+	
+	<select id="send_getMessageList" resultType="MessageVO">
+	<![CDATA[
+		select * from(
+			select rownum num, send_note.* 
+			from (select * from send_note order by seq desc) send_note
+			)
+			where num between #{rowStart} and #{rowEnd}	and send_id = #{send_id}
+	]]>
+	</select>
+
+	<select id="listCount" resultType="int">
+	<![CDATA[
+		select count(seq)
+		  from send_note
+		 where seq > 0
+	]]>
+	</select>
+
+	  <!-- 쪽지 보내기 -->
+	<insert id="send_insertMessage" useGeneratedKeys="true"
+		keyProperty="id">
+	<![CDATA[
+		insert into send_note (seq, recv_id, send_id, content, name, send_date)
+		values ((select nvl(max(seq)+1,0) from send_note), #{recv_id}, #{send_id}, #{content}, #{name}, to_char(sysdate,'yy.mm.dd hh24:mi'))
+	]]>
+	</insert>
+	
+		<insert id="recv_insertMessage" useGeneratedKeys="true" keyProperty="id">
+	<![CDATA[
+		insert into recv_note (seq, recv_id, send_id, content, name, send_date)
+		values ((select nvl(max(seq)+1,0) from recv_note), #{recv_id}, #{send_id}, #{content}, #{name}, to_char(sysdate,'yy.mm.dd hh24:mi'))
+	]]>
+	</insert>
+
+	  <!-- 삭제 -->
+	<delete id="recv_deleteMessage">
+	<![CDATA[
+		DELETE FROM recv_note WHERE SEQ=#{seq}
+	]]>
+	</delete>
+
+	<delete id="send_deleteMessage">
+	<![CDATA[
+		DELETE FROM send_note WHERE SEQ=#{seq}
+	]]>
+	</delete>
+
+	<select id="getFriendList" resultType="MessageVO">
+	<![CDATA[
+		select ID from users order by seq desc
+	]]>
+	</select>
+
+</mapper>

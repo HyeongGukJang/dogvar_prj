@@ -1,0 +1,122 @@
+a {
+	text-decoration: none;
+}
+
+table {
+	table-layout: fixed;
+}
+
+.content_table {
+	white-space: pre-line;
+	word-wrap: break-word
+}
+
+.content {
+	overflow: hidden;
+	/* text-overflow: ellipsis; 텍스트가 박스보다 크면 ...으로 표시*/
+}
+
+.content_view {
+	margin-bottom: 100px;
+}
+
+.title {
+	width: 100px;
+}
+
+.comment_write {
+	padding: 10px 10px 10px 10px;
+	border: 1px solid rgba(210, 215, 217, 0.75);
+	height: 130px;
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+
+.comment_writer_info {
+	margin-bottom: 10px;
+}
+
+.comment_writer_nick {
+	padding-top: 5px;
+	margin-left: 5px;
+}
+
+.comment_textarea {
+	width: 85%;
+	height: 70px;
+	float: left;
+	resize: none;
+}
+
+.comment_register {
+	float: left;
+	width: 9%;
+	text-align: center;
+	margin: 40px 0px 0px 15px;
+	font-size: 60%;
+	padding: 0;
+}
+
+.comment_view {
+	list-style-type: none;
+	padding: 10px 10px 30px 10px;
+	border: 1px solid rgba(210, 215, 217, 0.75);
+}
+
+.comment_img {
+	width: 25px;
+	height: 25px;
+	float: left;
+	margin-right: 10px;
+	border-radius: 70%;
+}
+
+.comment_nick_info {
+	font-weight: bold;
+}
+
+.comment_text {
+	margin: 10px 0px 0px 35px;
+	height: 30px;
+}
+
+.comment_info_date {
+	float: left;
+	margin-left: 35px;
+}
+
+.comment_delete {
+	margin-left: 10px;
+	float: left;
+}
+
+.comment_modify {
+	margin-left: 10px;
+}
+
+.listBtn_left {
+	float: left;
+	margin-bottom: 50px;
+	font-size: 80%;
+}
+
+.listBtn_rigth {
+	float: right;
+	margin-bottom: 50px;
+	font-size: 80%;
+}
+
+.footer_list {
+	list-style-type: none;
+}
+
+.footer_hr {
+	width: 100%;
+}
+
+.footer_GBSB {
+	float: left;
+	border-right: 1px solid rgba(210, 215, 217, 0.75);
+	padding-right: 10px;
+	margin-right: 10px;
+}
