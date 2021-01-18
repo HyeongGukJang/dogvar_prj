@@ -1,0 +1,77 @@
+create table MEMBER(
+id varchar2(20) not null primary key,
+name varchar2(20) not null,
+password varchar2(20) not null,
+nickname varchar2(20) not null,
+birthday varchar2(8),
+website varchar2(50),
+introduce varchar2(500),
+emailId varchar2(50) not null, 
+emailDomain varchar2(50) not null, 
+phoneStart varchar2(3) not null, 
+phoneCenter varchar2(4) not null,
+phoneEnd varchar2(4) not null,
+sex varchar2(1),
+enableYn varchar2(1),
+photoPath varchar2(300)
+)
+
+CREATE TABLE TBL_BOARD(  
+    BGNO NUMBER(11,0), -- 게시판 그룹번호
+    BRDNO NUMBER(11,0), -- 글번호
+    BRDTITLE VARCHAR2(255 BYTE), -- 글제목
+    BRDWRITER VARCHAR2(20 BYTE), -- 작성자
+    BRDMEMO VARCHAR2(4000 BYTE), -- 글내용
+    BRDDATE DATE, -- 작성일자
+    BRDHIT NUMBER, -- 조회수
+    BRDDELETEFLAG CHAR(1 BYTE), -- 삭제여부 
+    CONSTRAINT BRDNO_PK PRIMARY KEY (BRDNO)
+);
+CREATE SEQUENCE BRDNO_SEQ;
+
+CREATE TABLE TBL_BOARDREPLY ( 
+    BRDNO NUMBER(11,0) NOT NULL, -- 게시물 번호
+    RENO NUMBER(11,0), -- 댓글번호
+    REWRITER VARCHAR2(10 BYTE) NOT NULL, -- 작성자
+    REMEMO VARCHAR2(500 BYTE), -- 댓글내용
+    REDATE DATE, -- 작성일자
+    REDELETEFLAG VARCHAR2(1 BYTE) NOT NULL, -- 삭제여부
+    REPARENT NUMBER(11,0), -- 부모댓글
+    REDEPTH NUMBER, -- 깊이
+    REORDER NUMBER, -- 순서
+    CONSTRAINT RENO_PK PRIMARY KEY (RENO)
+);
+
+CREATE TABLE TBL_BOARDREPLY ( 
+    BRDNO NUMBER(11,0) NOT NULL, -- 게시물 번호
+    RENO NUMBER(11,0), -- 댓글번호
+    REWRITER VARCHAR2(10 BYTE) NOT NULL, -- 작성자
+    REMEMO VARCHAR2(500 BYTE), -- 댓글내용
+    REDATE DATE, -- 작성일자
+    REDELETEFLAG VARCHAR2(1 BYTE) NOT NULL, -- 삭제여부
+    REPARENT NUMBER(11,0), -- 부모댓글
+    REDEPTH NUMBER, -- 깊이
+    REORDER NUMBER, -- 순서
+    CONSTRAINT RENO_PK PRIMARY KEY (RENO)
+);
+
+create table send_note(
+   no          number(11),
+   recv_id     varchar2(20) not null,
+   send_id     varchar2(20) not null,
+   title           varchar2(255) not null,
+   content varchar2(300) not null,
+   recv_chk  number(11),
+   note_name    varchar2(100) not null,
+   send_date timestamp
+);
+
+create table recv_note(
+   no          number(11),
+   recv_id     varchar2(20) not null,
+   send_id     varchar2(20) not null,
+   title           varchar2(255) not null,
+   content varchar2(300) not null,
+   note_name    varchar2(100) not null,
+   send_date timestamp
+);
