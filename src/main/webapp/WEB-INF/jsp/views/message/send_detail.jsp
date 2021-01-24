@@ -7,7 +7,6 @@
 							<strong>쪽지 상세확인</strong>
 						</h4>
 					</header>
-					
 						<div>		
 							<table class="alt2">
 								<tr>

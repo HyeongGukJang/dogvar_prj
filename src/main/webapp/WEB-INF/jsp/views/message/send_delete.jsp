@@ -22,7 +22,7 @@
 					</div>
 				</section>
 			</div>
-		</div>
+		</div> 
 
 		<%@ include file="../inc/messagefooter.jsp"%>
 </body>

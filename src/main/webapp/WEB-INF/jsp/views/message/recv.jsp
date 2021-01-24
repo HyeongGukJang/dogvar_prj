@@ -36,7 +36,6 @@
 								<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
 									<li><a href="recv${pageMaker.makeQuery(idx)}&recv_id=<%=(String) session.getAttribute("loginID")%>"class="page active">${idx}</a></li>
 								</c:forEach>
-								
 									<li><a href="recv${pageMaker.makeQuery(pageMaker.endPage)}&recv_id=<%=(String) session.getAttribute("loginID")%>" class="button">Next</a></li>
 							</ul>
 						</div>

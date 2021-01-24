@@ -10,7 +10,7 @@
 							<strong>${recv_message.seq } 번 글을 삭제하시겠습니까?</strong>
 						</h3>
 					</header>
-					
+					 
 					<div id="btn">
 						<ul class="actions">
 						<li><a href="recv?recv_id=<%=(String) session.getAttribute("loginID")%>" class="button primary">NO</a></li>

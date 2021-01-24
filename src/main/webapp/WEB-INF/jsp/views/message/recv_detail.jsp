@@ -36,7 +36,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> 
 
         <%@ include file="../inc/messagefooter.jsp"%>
 </body>
